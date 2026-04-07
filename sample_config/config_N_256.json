@@ -1,0 +1,6 @@
+{
+    "N": 256,
+    "nu": 0.0001,
+    "t": 0.5,
+    "advection_scheme": "central"
+}

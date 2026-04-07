@@ -1,0 +1,13 @@
+services:
+  ns-solver:
+    build:
+      context: .
+    image: ns-solver-jax:latest
+    working_dir: /app
+    environment:
+      XLA_FLAGS: --xla_force_host_platform_device_count=${JAX_DEVICE_COUNT:-8}
+      MPLBACKEND: Agg
+      XLA_PYTHON_CLIENT_PREALLOCATE: "false"
+    volumes:
+      - ./result:/app/result
+    command: python runner.py --config sample_config/config_N_128.json
